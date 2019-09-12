@@ -10,10 +10,7 @@ jobs: # a collection of steps
        
       - run: sudo docker-php-ext-install zip
       - run: sudo composer self-update 
-      - save_cache: # special step to save the dependency cache with the `composer.lock` cache key template
-          key: composer-v1-{{ checksum "composer.lock" }}
-          paths:
-            - vendor
+       
        
       - run: yarn install 
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples 
