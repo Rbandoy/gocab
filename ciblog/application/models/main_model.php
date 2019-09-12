@@ -18,7 +18,7 @@
             return $query->row();
         }
         function updateData($id, $lname, $fname, $email, $address, $refno, $amount, $status, $dateUpdated) {
-            $this->db->query("UPDATE `tbluser` SET `lname`= '$lname', `fname`= '$lname', `email`= '$email', 
+            $this->db->query("UPDATE `tbluser` SET `lname`= '$lname', `fname`= '$fname', `email`= '$email', 
                 `address`= '$address', `refno`= '$refno', `amount`= '$amount', `status`= '$status', 
                 `dateUpdated`= '$dateUpdated' where `id`= '$id'");
             return $this->db->affected_rows();;

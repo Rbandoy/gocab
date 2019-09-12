@@ -93,6 +93,7 @@ class Register extends CI_Controller {
       if (!$result) { 
         echo "<script type='text/javascript'>alert('No Data Deleted');</script>";
         $this->index();
+        return;
       }
       echo "<script type='text/javascript'>alert('Data Deleted');</script>";
       $this->index();
