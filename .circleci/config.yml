@@ -29,8 +29,7 @@ jobs: # a collection of steps
       - save_cache: # special step to save the dependency cache with the `package.json` cache key template
           key: node-v1-{{ checksum "package.json" }}
           paths:
-            - node_modules
-      - run: touch storage/testing.sqlite 
+            - node_modules 
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
       - run: ./vendor/bin/codecept build
       - run: ./vendor/bin/codecept run
