@@ -28,16 +28,16 @@
             <th>Amount</th>
             <th>Status</th>
           </tr>";
-          for ($num = 0; $num < count($listdata); $num++) {
+          foreach ($listdata as $records) {
           echo "<tr id='table'>
-            <td id='table'>".$listdata[$num]->id."</td>
-            <td id='table'>".$listdata[$num]->fname."</td>
-            <td id='table'>".$listdata[$num]->lname."</td>
-            <td id='table'>".$listdata[$num]->email."</td>
-            <td id='table'>".$listdata[$num]->address."</td>
-            <td id='table'>".$listdata[$num]->refno."</td>
-            <td id='table'>".$listdata[$num]->amount."</td>
-            <td id='table'>".$listdata[$num]->status."</td>
+            <td id='table'>".$records->id."</td>
+            <td id='table'>".$records->fname."</td>
+            <td id='table'>".$records->lname."</td>
+            <td id='table'>".$records->email."</td>
+            <td id='table'>".$records->address."</td>
+            <td id='table'>".$records->refno."</td>
+            <td id='table'>".$records->amount."</td>
+            <td id='table'>".$records->status."</td>
           </tr>";
           }
         echo "</table>";
