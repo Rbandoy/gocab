@@ -16,24 +16,21 @@ class Register extends CI_Controller {
     $this->load->model('main_model');  
     $this->load->view("home_view", $data);
   }
-  public function validation() {
-    $this->load->library('form_validation');
-    $this->form_validation->set_rules("fname","firstname", 'required');  
-    $this->form_validation->set_rules("lname","lastname", 'required');
-    $this->form_validation->set_rules("address","Address", 'required'); 
-    $this->form_validation->set_rules("refno","RefNo.", 'required'); 
-    $this->form_validation->set_rules("amount","Amount", 'required'); 
-    $this->form_validation->set_rules("status","Status", 'required');  
-    $this->form_validation->set_rules("email","Email", 'trim|required|valid_email'); 
-    if (!$this->form_validation->run()) {
-      return;
-    }
-  }
 
   public function RegisterUser() {
     if ($this->input->post("insert")) {
-      $this->validation();
-      
+      $this->load->library('form_validation');
+      $this->form_validation->set_rules("fname","firstname", 'required');  
+      $this->form_validation->set_rules("lname","lastname", 'required');
+      $this->form_validation->set_rules("address","Address", 'required'); 
+      $this->form_validation->set_rules("refno","RefNo.", 'required'); 
+      $this->form_validation->set_rules("amount","Amount", 'required'); 
+      $this->form_validation->set_rules("status","Status", 'required');  
+      $this->form_validation->set_rules("email","Email", 'trim|required|valid_email'); 
+      if (!$this->form_validation->run()) {
+        $this->index();
+        return;
+      }
       $data = array(
         "fname" => $this->input->post("fname"),
         "lname" => $this->input->post("lname"),
@@ -46,7 +43,6 @@ class Register extends CI_Controller {
       );
       $this->main_model->insertData($data);
       $this->index();
-      return;
     }
     if ($this->input->post("view")) {
       $result['listdata'] = $this->main_model->viewData(); 
@@ -59,8 +55,18 @@ class Register extends CI_Controller {
     }
 
     if ($this->input->post("update")) {
-      $this->validation();
-
+      $this->load->library('form_validation');
+      $this->form_validation->set_rules("fname","firstname", 'required');  
+      $this->form_validation->set_rules("lname","lastname", 'required');
+      $this->form_validation->set_rules("address","Address", 'required'); 
+      $this->form_validation->set_rules("refno","RefNo.", 'required'); 
+      $this->form_validation->set_rules("amount","Amount", 'required'); 
+      $this->form_validation->set_rules("status","Status", 'required');  
+      $this->form_validation->set_rules("email","Email", 'trim|required|valid_email'); 
+      if (!$this->form_validation->run()) {
+        $this->index();
+        return;
+      }
       $id = $this->input->post("id");
       $lname = $this->input->post("lname");
       $fname = $this->input->post("fname");
