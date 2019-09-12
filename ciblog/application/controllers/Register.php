@@ -38,6 +38,7 @@ class Register extends CI_Controller {
         "address" => $this->input->post("address"),
         "refno" => $this->input->post("refno"),
         "amount" => $this->input->post("amount"),
+        "status" => $this->input->post("status"),
         "dateCreated" => unix_to_human(time()),
         "dateUpdated" => unix_to_human(time())
       );

@@ -106,9 +106,15 @@
       </tr>
       <tr>
         <td>Status : </td>
-        <td><input type='text' name='status' value='<?php
-          if(isset($result)) echo ($result->status);
-        ?>'/></td>
+        <td>
+          <?php
+            if(isset($result)) echo ("Current status: ".$result->status);
+          ?>
+          <select name="status">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select> 
+        </td>
         <td>
           <span><?php echo form_error('status'); ?></span>
         </td>
